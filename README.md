@@ -1,7 +1,6 @@
 # README
 
 
-MedsTracker is an app to keep you on-schedule for your medications!
 
 Things you may want to cover:
 

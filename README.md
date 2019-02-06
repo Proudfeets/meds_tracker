@@ -1,13 +1,10 @@
 # README
 
-https://app.codeship.com/projects/8df45950-0a0b-0137-fc98-06b77dea8d40/status?branch=master
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Runs on Ruby 2.4.5, Carrierwave 1.0, with the fog gem and AWS.  For that you'll need your own access keys.
 
 * System dependencies
 

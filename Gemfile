@@ -15,7 +15,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
+# Combines AWS and Carrierwave
+gem 'fog'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -48,7 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails', group: [:development, :test]
 gem 'jquery-rails'
-gem 'dotenv-rails', group: [:development, :test]
+gem 'dotenv-rails', group: [:development, :test] 
 gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'launchy', group: [:development, :test]
@@ -57,5 +58,7 @@ gem 'database_cleaner', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
+gem 'carrierwave', '~> 1.0'
+
 gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.3'

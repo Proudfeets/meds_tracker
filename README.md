@@ -1,6 +1,5 @@
 # README
 
-
 * System dependencies
 
 * Configuration

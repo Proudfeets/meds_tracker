@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_213739) do
+ActiveRecord::Schema.define(version: 2019_02_06_223610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 2019_02_06_213739) do
     t.string "brand_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.string "dosage", default: "", null: false
+    t.string "frequency_number", default: "", null: false
+    t.string "frequency_period", default: "", null: false
+    t.string "special_instructions", default: ""
+    t.string "prescribed_by", default: ""
+    t.bigint "medication_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medication_id"], name: "index_prescriptions_on_medication_id"
+    t.index ["user_id"], name: "index_prescriptions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -49,7 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails', group: [:development, :test]
 gem 'jquery-rails'
-gem 'dotenv-rails', group: [:development, :test] 
+gem 'dotenv-rails', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'launchy', group: [:development, :test]
@@ -62,3 +62,5 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.3'
+
+gem "active_model_serializers"

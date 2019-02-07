@@ -35,3 +35,5 @@ coverage/*
 
 # Ignore uploaded files in test/development
 /public/uploads
+
+**/.DS_Store

@@ -4,6 +4,8 @@
 * Runs on Ruby 2.4.5, Carrierwave 1.0, with the fog gem and AWS.  For that you'll need your own access keys.
 
 
+* Runs on Ruby on Rails 2.4.5, AWS
+
 * System dependencies
 
 * Configuration

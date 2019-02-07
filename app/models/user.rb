@@ -4,6 +4,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :encrypted_password, presence: true
 
+  has_many :prescriptions
+  has_many :medications, through: :prescriptions
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

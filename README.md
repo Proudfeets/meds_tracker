@@ -1,6 +1,8 @@
 # README
 
 
+* Runs on Ruby on Rails 2.4.5, AWS
+
 * System dependencies
 
 * Configuration

@@ -1,13 +1,12 @@
 import React from 'react'
 import {Route, browserHistory, IndexRoute, Router} from 'react-router';
-import UserShowContainer from '../containers/UserShowContainer'
+import UserShowContainer from '..//UserShowContainer'
 
 
 export const App = (props) => {
   return (
     <Router history={browserHistory}>
       <Route path="/" component={UserShowContainer}>
-        <Route path='/user' component={UserShowContainer} />
       </Route>
     </Router>
   );

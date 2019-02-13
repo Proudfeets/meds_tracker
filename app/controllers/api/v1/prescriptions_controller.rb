@@ -36,7 +36,4 @@ class Api::V1::PrescriptionsController < ApplicationController
     params.require(:prescription).permit(:id, :user, :medication, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by)
   end
 
-  if !user_signed_in
-    render json: {message: "You must sign in to take that action."}
-  end
 end

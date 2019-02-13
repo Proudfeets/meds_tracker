@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2019_02_06_223610) do
     t.string "frequency_period", default: "", null: false
     t.string "special_instructions", default: ""
     t.string "prescribed_by", default: ""
-    t.bigint "medication_id"
-    t.bigint "user_id"
+    t.bigint "medication_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["medication_id"], name: "index_prescriptions_on_medication_id"

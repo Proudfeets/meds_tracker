@@ -7,8 +7,8 @@ class CreatePrescriptions < ActiveRecord::Migration[5.2]
       t.string :special_instructions, default: ""
       t.string :prescribed_by, default: ""
 
-      t.belongs_to :medication
-      t.belongs_to :user
+      t.belongs_to :medication, null: false
+      t.belongs_to :user, null: false
 
       t.timestamps null: false
     end

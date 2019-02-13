@@ -12,8 +12,8 @@ class MedicationContainer extends Component {
         generic_name: "",
         brand_name: "",
         dosage: "",
-        frequencyPeriod: "",
-        frequencyNumber: 0,
+        frequency_period: "",
+        frequency_number: 0,
       };
       this.handleGenericNameChange = this.handleGenericNameChange.bind(this);
       this.handleBrandNameChange = this.handleBrandNameChange.bind(this);
@@ -25,11 +25,11 @@ class MedicationContainer extends Component {
     }
 
   handleFrequencyPeriodChange(event) {
-    this.setState({frequencyPeriod: event.target.value});
+    this.setState({frequency_period: event.target.value});
   }
 
   handleFrequencyNumberChange(event) {
-    this.setState({frequencyNumber: event.target.value});
+    this.setState({frequency_number: event.target.value});
   }
 
   handleDosageChange(event) {
@@ -37,7 +37,7 @@ class MedicationContainer extends Component {
   }
 
    handleGenericNameChange(event) {
-     this.setState({ generic_name: event.target.value});
+    this.setState({ generic_name: event.target.value});
    }
 
    handleBrandNameChange(event) {
@@ -51,8 +51,8 @@ class MedicationContainer extends Component {
        generic_name: this.state.generic_name,
        brand_name: this.state.brand_name,
        dosage: this.state.dosage,
-       frequencyNumber: this.state.frequencyNumber,
-       frequencyPeriod: this.state.frequencyPeriod,
+       frequency_number: this.state.frequency_number,
+       frequency_period: this.state.frequency_period,
      }
 
      this.addNewMedication(formPayload);
@@ -110,15 +110,15 @@ class MedicationContainer extends Component {
               handleDosageChange={this.handleDosageChange}
               />
               <FrequencyNumberField
-              content={this.state.frequencyNumber}
+              content={this.state.frequency_number}
               label="How often do you take this medication?"
-              name="frequencyNumber"
+              name="frequency_number"
               handleFrequencyNumberChange={this.handleFrequencyNumberChange}
               />
               <FrequencyPeriodField
-              content={this.state.frequencyPeriod}
+              content={this.state.frequency_period}
               label=" "
-              name="frequencyPeriod"
+              name="frequency_period"
               handleFrequencyPeriodChange={this.handleFrequencyPeriodChange}
               />
             <div className="button-group">

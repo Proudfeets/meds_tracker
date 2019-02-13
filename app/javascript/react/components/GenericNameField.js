@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-const MedicationGenericField = props => {
+const GenericNameField = props => {
   return(
     <div>
     <label>{props.label}</label>
@@ -8,10 +8,10 @@ const MedicationGenericField = props => {
     name="generic-field"
     type="text"
     value={props.content}
-    onChange={props.handleMedicationGenericChange}
+    onChange={props.handleGenericNameChange}
     />
     </div>
   );
 }
 
-export default MedicationGenericField;
+export default GenericNameField;

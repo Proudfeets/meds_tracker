@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-const MedicationBrandField = props => {
+const BrandNameField = props => {
   return(
     <div>
     <label>{props.label}</label>
@@ -8,9 +8,9 @@ const MedicationBrandField = props => {
       name="brand-field"
       type="text"
       value={props.content}
-      onChange={props.handleMedicationBrandChange}
+      onChange={props.handleBrandNameChange}
     />
     </div>
   )
 }
-export default MedicationBrandField;
+export default BrandNameField;

@@ -3,10 +3,9 @@ class Api::V1::PrescriptionsController < ApplicationController
 
   def index
     render json: Prescription.all
+
   end
 
-  def show
-  end
 
   def destroy
     if current_user_access

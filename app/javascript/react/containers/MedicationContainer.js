@@ -22,6 +22,7 @@ class MedicationContainer extends Component {
       this.handleDosageChange = this.handleDosageChange.bind(this);
       this.handleFrequencyPeriodChange = this.handleFrequencyPeriodChange.bind(this);
       this.handleFrequencyNumberChange = this.handleFrequencyNumberChange.bind(this);
+      this.handleClear = this.handleClear.bind(this);
     }
 
   handleFrequencyPeriodChange(event) {
@@ -43,6 +44,16 @@ class MedicationContainer extends Component {
    handleBrandNameChange(event) {
      this.setState({ brand_name: event.target.value});
    }
+  handleClear(event) {
+    event.preventDefault();
+      this.setState({
+        generic_name: "",
+        brand_name: "",
+        dosage: "",
+        frequency_period: "",
+        frequency_number: 0,
+      })
+  }
 
    handleSubmit(event) {
 
@@ -56,7 +67,9 @@ class MedicationContainer extends Component {
      }
 
      this.addNewMedication(formPayload);
+     this.handleClear(event);
    }
+
 
    addNewMedication(formPayload){
    let jsonStringInfo = JSON.stringify(formPayload);
@@ -89,6 +102,9 @@ class MedicationContainer extends Component {
 
     return(
       <div>
+        <h1> Your Cabinet</h1>
+
+
         <h1> Add a medication to your cabinet </h1>
           <form className="new-medication-form" onSubmit={this.handleSubmit}>
             <GenericNameField
@@ -122,7 +138,7 @@ class MedicationContainer extends Component {
               handleFrequencyPeriodChange={this.handleFrequencyPeriodChange}
               />
             <div className="button-group">
-              <button className="button"> Clear</button>
+              <button className="button" onClick={this.handleClear}> Clear</button>
               <input className="button" onSubmit={this.handleSubmit} type="submit" value="Submit" />
           </div>
         </form>

@@ -17,11 +17,13 @@ class PrescriptionSerializer < ActiveModel::Serializer
     object.medication.brand_name
   end
 
-binding.pry
 
 
   Prescription.forEach (Script) {
     if Script.user_id == current_user.id
+      console.log(Script)
+      return Script
+    end
   }
 
 end

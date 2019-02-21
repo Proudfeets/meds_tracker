@@ -5,37 +5,44 @@ import PrescriptionTile from '../components/PrescriptionTile';
 
 class PrescriptionShowContainer extends Component {
   constructor(props) {
-  super(props);
-  this.state = {
-    prescriptions: []
+      super(props);
+      this.state = {
+        prescriptions: []
+      };
     }
-  }
 
-  componentDidMount(){
-  fetch('/api/v1/prescriptions')
-    .then(response => {
-      if(response.ok){
-        return response;
-      } else {
-        let errorMessage =`${response.status}(${response.statusText})`,
-        error=new Error(errorMessage);
-        throw(error);
-      }
+    componentDidMount(){
+      fetch(`/api/v1/prescriptions`)
+      .then((response) => {
+        let responseBody = response.json()
+        return responseBody;
+      })
+      .then(responseBody => {
+        this.setState({
+      prescriptions: responseBody.prescriptions
+        });
+      });
+    }
+
+  render(){
+    let medications = this.state.prescriptions.map(prescription => {
+      return(
+        <PrescriptionTile
+          key={prescription.id}
+          id={prescription.id}
+          user={prescription.user.id}
+          generic={prescription.medication.generic_name}
+          brand={prescription.medication.brand_name}
+          label="Prescription"
+          />
+      )
     })
-    .then(response=> response.text())
-    .then(body => {
-      let bodyParsed = JSON.parse(body);
-      this.setState({prescriptions: bodyParsed})
-    })
-  }
-
-
-  render() {
-    return(
-    <div className="greeting">
-      "Hello world from User Container"
-    </div>
-    );
+  return(
+    <div>
+      {medications}
+      <PrescriptionTile/>
+      </div>
+    )
   }
 }
-export default PrescriptionShowContainer;
+export default PrescriptionShowContainer

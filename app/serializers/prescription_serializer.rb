@@ -1,5 +1,5 @@
 class PrescriptionSerializer < ActiveModel::Serializer
-  attributes :id, :user, :medication, :medication_brand, :medication_generic, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by
+  attributes :user_prescriptions, :id, :user, :medication, :medication_brand, :medication_generic, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by
 
   def instructions
     object.special_instructions
@@ -17,13 +17,9 @@ class PrescriptionSerializer < ActiveModel::Serializer
     object.medication.brand_name
   end
 
+  def user_prescriptions
+    scope.prescriptions
+  end
 
-
-  Prescription.forEach (Script) {
-    if Script.user_id == current_user.id
-      console.log(Script)
-      return Script
-    end
-  }
 
 end

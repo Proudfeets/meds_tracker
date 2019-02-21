@@ -1,9 +1,10 @@
 class Api::V1::PrescriptionsController < ApplicationController
+  serialization_scope :current_user
   protect_from_forgery with: :null_session, unless: -> { request.format.json? }
+
 
   def index
     render json: Prescription.all
-
   end
 
 

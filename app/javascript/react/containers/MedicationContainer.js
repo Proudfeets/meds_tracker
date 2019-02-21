@@ -9,11 +9,12 @@ class MedicationContainer extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        generic_name: "",
-        brand_name: "",
+        medication_generic: "",
+        medication_brand: "",
         dosage: "",
         frequency_period: "",
         frequency_number: 0,
+        user_prescriptions: [],
       };
       this.handleGenericNameChange = this.handleGenericNameChange.bind(this);
       this.handleBrandNameChange = this.handleBrandNameChange.bind(this);
@@ -38,17 +39,17 @@ class MedicationContainer extends Component {
   }
 
    handleGenericNameChange(event) {
-    this.setState({ generic_name: event.target.value});
+    this.setState({ medication_generic: event.target.value});
    }
 
    handleBrandNameChange(event) {
-     this.setState({ brand_name: event.target.value});
+     this.setState({ medication_brand: event.target.value});
    }
   handleClear(event) {
     event.preventDefault();
       this.setState({
-        generic_name: "",
-        brand_name: "",
+        medication_generic: "",
+        medication_brand: "",
         dosage: "",
         frequency_period: "",
         frequency_number: 0,
@@ -59,8 +60,8 @@ class MedicationContainer extends Component {
 
      event.preventDefault();
      let formPayload = {
-       generic_name: this.state.generic_name,
-       brand_name: this.state.brand_name,
+       medication_generic: this.state.medication_generic,
+       medication_brand: this.state.medication_brand,
        dosage: this.state.dosage,
        frequency_number: this.state.frequency_number,
        frequency_period: this.state.frequency_period,
@@ -83,7 +84,6 @@ class MedicationContainer extends Component {
      }
    })
    .then(response => {
-     console.log(response)
      if(response.ok) {
        return response;
      } else {
@@ -97,43 +97,42 @@ class MedicationContainer extends Component {
      console.log(formPayload);
    });
  }
-
+    // debugger;
   render(){
 
     return(
       <div>
         <h1> Your Cabinet</h1>
 
-
         <h1> Add a medication to your cabinet </h1>
           <form className="new-medication-form" onSubmit={this.handleSubmit}>
             <GenericNameField
-              content={this.state.generic_name}
+              content={this.state.medication_generic}
               label="Generic Name (eg: acetaminophen)"
               name="medication-generic"
               handleGenericNameChange={this.handleGenericNameChange}
             />
             <BrandNameField
-              content={this.state.brand_name}
+              content={this.state.medication_brand}
               label="Medication Brand Name (eg: Tylenol)"
               name="medication-brand"
               handleBrandNameChange={this.handleBrandNameChange}
               />
               <DosageField
               content={this.state.dosage}
-              label="Dosage (eg: 2 pills)"
+              label="Dosage (eg: 50mg)"
               name="dosage"
               handleDosageChange={this.handleDosageChange}
               />
               <FrequencyNumberField
               content={this.state.frequency_number}
-              label="How often do you take this medication?"
+              label="How many do you take at a time?"
               name="frequency_number"
               handleFrequencyNumberChange={this.handleFrequencyNumberChange}
               />
               <FrequencyPeriodField
               content={this.state.frequency_period}
-              label=" "
+              label="How often do you take this medication?"
               name="frequency_period"
               handleFrequencyPeriodChange={this.handleFrequencyPeriodChange}
               />

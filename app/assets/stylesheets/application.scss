@@ -15,6 +15,14 @@
  *= require foundation_and_overrides
 
  */
+ body {
+  background-color: #D9E8F5;
+ }
+
+ .background{
+   background-color: #D9E8F5;
+ }
+
 .top-bar{
   background: #304269;
   font-color: white;
@@ -22,6 +30,8 @@
   font-family: Arial, Helvetica, monospace;
 };
 
-.background{
-  background-color: #D9E8F5;
-};
+
+.greeting{
+  color: #304269;
+  font-size: 64px;
+}

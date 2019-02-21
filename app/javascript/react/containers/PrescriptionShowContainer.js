@@ -1,20 +1,47 @@
-class PrescriptionSerializer < ActiveModel::Serializer
-  attributes :id, :user, :medication, :medication_brand, :medication_generic, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by
+import React, {Component} from "react";
+import PrescriptionTile from '../components/PrescriptionTile';
 
-  def instructions
-    object.special_instructions
-  end
+class PrescriptionShowContainer extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        prescriptions: []
+      };
+    }
 
-  def prescriber
-    object.prescribed_by
-  end
+    componentDidMount(){
+      fetch(`/api/v1/prescriptions`)
+      .then((response) => {
+        let responseBody = response.json()
+        return responseBody;
+      })
+      .then(responseBody => {
+        this.setState({
+      prescriptions: responseBody.prescriptions
+        });
+      });
+    }
 
-  def medication_generic
-    object.medication.generic_name
-  end
+  render(){
+    let medications = this.state.prescriptions.map(prescription => {
+      return(
+        <PrescriptionTile
+          key={prescription.id}
+          id={prescription.id}
+          user={prescription.user.id}
+          generic={prescription.medication.generic_name}
+          brand={prescription.medication.brand_name}
+          label="Prescription"
+          />
+      )
+    })
+  return(
+    <div>
+      {medications}
+      <PrescriptionTile/>
+      </div>
+    )
+  }
+}
 
-  def medication_brand
-    object.medication.brand_name
-  end
-
-end
+export default PrescriptionShowContainer

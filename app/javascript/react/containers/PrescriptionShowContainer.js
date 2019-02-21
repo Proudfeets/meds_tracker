@@ -1,4 +1,6 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
+import MedicationContainer from './MedicationContainer';
+import { browserHistory, Link } from 'react-router';
 import PrescriptionTile from '../components/PrescriptionTile';
 
 class PrescriptionShowContainer extends Component {

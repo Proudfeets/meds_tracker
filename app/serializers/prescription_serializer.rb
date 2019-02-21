@@ -21,4 +21,5 @@ class PrescriptionSerializer < ActiveModel::Serializer
     scope.prescriptions
   end
 
+
 end

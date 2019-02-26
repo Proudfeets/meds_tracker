@@ -17,11 +17,13 @@
  */
 .top-bar{
   background: #304269;
-  font-color: white;
+  color: white;
   line-height: 6rem;
   font-family: Arial, Helvetica, monospace;
 };
 
-.background{
-  background-color: #D9E8F5;
+
+textarea {
+  max-width: 50%;
+  border-radius: 10%;
 };

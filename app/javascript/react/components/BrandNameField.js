@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 const BrandNameField = props => {
   return(
-    <div>
+    <div className="linear-gradient">
     <label>{props.label}</label>
     <textarea
       name="brand-field"

@@ -10,22 +10,22 @@ medications2 = Medication.find_or_create_by!(generic_name: 'Lorazepam', brand_na
 medications3 = Medication.find_or_create_by!(generic_name: 'Fluoxetine', brand_name: 'Prozac')
 medications4 = Medication.find_or_create_by!(generic_name: 'Dexmethylphenidate', brand_name: 'Focalin')
 
-users1 = User.find_by(email: 'johnf2@kennedy.com')
+users1 = User.find_by(email: 'johnf@kennedy.com')
   unless users1.present?
-    users1 = User.create(id: 1, email: 'johnf2@kennedy.com', password: '1234567', password_confirmation: '1234567')
+    users1 = User.create(id: 1, email: 'johnf@kennedy.com', password: '123456', password_confirmation: '123456')
 end
 
-users2 = User.find_by(email: 'liza2@warren.com')
+users2 = User.find_by(email: 'liz@warren.com')
   unless users2.present?
-    users2 = User.create(id: 2, email: 'liza2@warren.com', password: '1234568', password_confirmation: '1234568')
+    users2 = User.create(id: 2, email: 'liz@warren.com', password: '123456', password_confirmation: '123456')
 end
 
-users3 = User.find_by(email: 'martinj2@walsh.com')
+users3 = User.find_by(email: 'marty@walsh.com')
   unless users3.present?
-    users3 = User.create(id: 3, email: 'martinj2@walsh.com', password: '1234569', password_confirmation: '1234569')
+    users3 = User.create(id: 3, email: 'marty@walsh.com', password: '123456', password_confirmation: '123456')
 end
 
-prescriptions1 = Prescription.find_or_create_by!(user_id: 5, medication_id: 2, dosage: "1mg", frequency_number: 2, frequency_period: "as needed")
-prescriptions2 = Prescription.find_or_create_by!(user_id: 6, medication_id: 1, dosage: "2 pills", frequency_number: 1, frequency_period: "per diem")
-prescriptions3 = Prescription.find_or_create_by!(user_id: 7, medication_id: 3, dosage: "Half", frequency_number: 2, frequency_period: "every 12 hours")
-prescriptions4 = Prescription.find_or_create_by!(user_id: 8, medication_id: 4, dosage: "5.5mg", frequency_number: 1, frequency_period: "per diem")
+prescriptions1 = Prescription.find_or_create_by!(user_id: 3, medication_id: 2, dosage: "1mg", frequency_number: 2, frequency_period: "as needed")
+prescriptions2 = Prescription.find_or_create_by!(user_id: 3, medication_id: 1, dosage: "2 pills", frequency_number: 1, frequency_period: "per diem")
+prescriptions3 = Prescription.find_or_create_by!(user_id: 2, medication_id: 3, dosage: "Half", frequency_number: 2, frequency_period: "every 12 hours")
+prescriptions4 = Prescription.find_or_create_by!(user_id: 1, medication_id: 4, dosage: "5.5mg", frequency_number: 1, frequency_period: "per diem")

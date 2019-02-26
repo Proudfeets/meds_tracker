@@ -9,11 +9,11 @@ class MedicationContainer extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        medication_generic: "",
-        medication_brand: "",
+        generic_name: "",
+        brand_name: "",
         dosage: "",
-        frequency_period: "",
-        frequency_number: 0,
+        frequency_period: "Each year",
+        frequency_number: "1",
         user_prescriptions: [],
       };
       this.handleGenericNameChange = this.handleGenericNameChange.bind(this);
@@ -27,32 +27,34 @@ class MedicationContainer extends Component {
     }
 
   handleFrequencyPeriodChange(event) {
-    this.setState({frequency_period: event.target.value});
+    this.setState({ frequency_period: event.target.value });
   }
-
+  debugger;
   handleFrequencyNumberChange(event) {
-    this.setState({frequency_number: event.target.value});
+    debugger;
+    this.setState({ frequency_number: event.target.value });
+    debugger
   }
 
   handleDosageChange(event) {
-    this.setState({dosage: event.target.value});
+    this.setState({ dosage: event.target.value });
   }
 
    handleGenericNameChange(event) {
-    this.setState({ medication_generic: event.target.value});
+    this.setState({ generic_name: event.target.value });
    }
 
    handleBrandNameChange(event) {
-     this.setState({ medication_brand: event.target.value});
+     this.setState({ brand_name: event.target.value });
    }
   handleClear(event) {
     event.preventDefault();
       this.setState({
-        medication_generic: "",
-        medication_brand: "",
+        generic_name: "",
+        brand_name: "",
         dosage: "",
-        frequency_period: "",
-        frequency_number: 0,
+        frequency_period: "Each year",
+        frequency_number: "1",
       })
   }
 
@@ -60,13 +62,12 @@ class MedicationContainer extends Component {
 
      event.preventDefault();
      let formPayload = {
-       medication_generic: this.state.medication_generic,
-       medication_brand: this.state.medication_brand,
+       generic_name: this.state.generic_name,
+       brand_name: this.state.brand_name,
        dosage: this.state.dosage,
        frequency_number: this.state.frequency_number,
        frequency_period: this.state.frequency_period,
      }
-
      this.addNewMedication(formPayload);
      this.handleClear(event);
    }
@@ -79,13 +80,14 @@ class MedicationContainer extends Component {
      body: jsonStringInfo,
      credentials: 'same-origin',
      headers:{
-       Accept: "application/json",
+       "Accept": "application/json",
        "Content-Type": "application/json"
      }
    })
    .then(response => {
      if(response.ok) {
        return response;
+       console.log(formPayload)
      } else {
        let errorMessage =`${response.status} (${response.statusText})`,
        error = new Error(errorMessage);
@@ -97,7 +99,7 @@ class MedicationContainer extends Component {
      console.log(formPayload);
    });
  }
-    // debugger;
+
   render(){
 
     return(
@@ -105,34 +107,35 @@ class MedicationContainer extends Component {
         <h1> Your Cabinet</h1>
 
         <h1> Add a medication to your cabinet </h1>
+        <div className="medsform">
           <form className="new-medication-form" onSubmit={this.handleSubmit}>
             <GenericNameField
-              content={this.state.medication_generic}
-              label="Generic Name (eg: acetaminophen)"
+              content={this.state.generic_name}
+              label="*Generic Name (eg: acetaminophen)"
               name="medication-generic"
               handleGenericNameChange={this.handleGenericNameChange}
             />
             <BrandNameField
-              content={this.state.medication_brand}
+              content={this.state.brand_name}
               label="Medication Brand Name (eg: Tylenol)"
               name="medication-brand"
               handleBrandNameChange={this.handleBrandNameChange}
               />
               <DosageField
               content={this.state.dosage}
-              label="Dosage (eg: 50mg)"
+              label="*Dosage (eg: 50mg)"
               name="dosage"
               handleDosageChange={this.handleDosageChange}
               />
               <FrequencyNumberField
               content={this.state.frequency_number}
-              label="How many do you take at a time?"
+              label="*How many do you take at a time?"
               name="frequency_number"
               handleFrequencyNumberChange={this.handleFrequencyNumberChange}
               />
               <FrequencyPeriodField
               content={this.state.frequency_period}
-              label="How often do you take this medication?"
+              label="*How often do you take this medication?"
               name="frequency_period"
               handleFrequencyPeriodChange={this.handleFrequencyPeriodChange}
               />
@@ -141,6 +144,7 @@ class MedicationContainer extends Component {
               <input className="button" onSubmit={this.handleSubmit} type="submit" value="Submit" />
           </div>
         </form>
+        </div>
       </div>
     );
   }

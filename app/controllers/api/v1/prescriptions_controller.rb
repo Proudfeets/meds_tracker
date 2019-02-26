@@ -17,13 +17,16 @@ class Api::V1::PrescriptionsController < ApplicationController
   end
 
   def create
-    new_prescription = Prescription.create(prescriptions_params)
+    # binding.pry
+    new_prescription = Prescription.new(prescriptions_params)
     new_prescription.user = current_user
     new_medication = Medication.find_by(generic_name: params["generic_name"])
     if !new_medication
       new_medication = Medication.create(generic_name: params["generic_name"], brand_name: params["brand_name"])
+    else
+      new_prescription.medication = new_medication
     end
-    new_prescription.medication = new_medication
+    # binding.pry
     if new_prescription.save
       render json: {message: "Your entry has been saved!"}
     else
@@ -33,7 +36,6 @@ class Api::V1::PrescriptionsController < ApplicationController
 
   private
   def prescriptions_params
-    params.require(:prescription).permit(:id, :user, :medication, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by)
+    params.require(:prescription).permit(:id, :user, :medication, :dosage, :frequency_number, :frequency_period, :special_instructions, :prescribed_by, :generic_name, :brand_name, )
   end
-
 end

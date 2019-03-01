@@ -15,9 +15,9 @@
  *= require foundation_and_overrides
 
  */
- body {
-  background-color: #D9E8F5;
- }
+ *{
+  font-style: normal;
+}
 
  .background{
    background-color: #D9E8F5;
@@ -28,7 +28,17 @@
   color: white;
   line-height: 6rem;
   font-family: Arial, Helvetica, monospace;
-};
-
-
-
+}
+textarea{
+  min-width: 50px;
+  width: 40%;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+}
+select{
+  min-width: 50px;
+  width: 40%;
+  padding-left: 30px;
+  padding-right: 30px;
+}

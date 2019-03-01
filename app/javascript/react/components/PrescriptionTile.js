@@ -10,4 +10,5 @@ const PrescriptionTile = props => {
   </div>
   )
 }
+
 export default PrescriptionTile;

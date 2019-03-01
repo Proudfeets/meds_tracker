@@ -10,6 +10,9 @@ class PrescriptionsController < ApplicationController
     def create
     end
 
+    def destroy
+    end
+
     private
 
     def prescriptions_params

@@ -142,6 +142,7 @@ class MedicationContainer extends Component {
             <div className="button-group">
               <button className="button" onClick={this.handleClear}> Clear</button>
               <input className="button" onSubmit={this.handleSubmit} type="submit" value="Submit" />
+              <a href="/prescriptions" className="button">See Prescription</a>
           </div>
         </form>
         </div>

@@ -3,14 +3,13 @@ import MedicationContainer from './MedicationContainer';
 import { browserHistory, Link } from 'react-router';
 import PrescriptionTile from '../components/PrescriptionTile';
 
-class PrescriptionShowContainer extends Component {
+class PrescriptionContainer extends Component {
   constructor(props) {
       super(props);
       this.state = {
         prescriptions: []
       };
     }
-
     componentDidMount(){
       fetch(`/api/v1/prescriptions`)
       .then((response) => {
@@ -25,25 +24,32 @@ class PrescriptionShowContainer extends Component {
     }
 
   render(){
+
     let medications = this.state.prescriptions.map(prescription => {
       return(
-        <PrescriptionTile
-          key={prescription.id}
-          id={prescription.id}
-          user={prescription.user.id}
-          generic={prescription.medication.generic_name}
-          brand={prescription.medication.brand_name}
-          label="Prescription"
-          />
+          <PrescriptionTile
+            key={prescription.id}
+            id={prescription.id}
+            user={prescription.user.id}
+            generic={prescription.medication.generic_name}
+            brand={prescription.medication.brand_name}
+            dosage={prescription.dosage}
+            number={prescription.frequency_number}
+            period={prescription.frequency_period}
+            />
       )
     })
+
+
   return(
     <div>
+    <h1> Your Medicine Cabinet </h1>
       {medications}
       <PrescriptionTile/>
-      </div>
+          <a href="/medications" className="button">Add Another Medication</a>
+    </div>
     )
   }
 }
 
-export default PrescriptionShowContainer
+export default PrescriptionContainer

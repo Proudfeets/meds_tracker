@@ -4,6 +4,7 @@ import BrandNameField from "../components/BrandNameField";
 import DosageField from "../components/DosageField";
 import FrequencyNumberField from "../components/FrequencyNumberField";
 import FrequencyPeriodField from "../components/FrequencyPeriodField";
+import PrescriptionTile from '../components/PrescriptionTile';
 
 class MedicationContainer extends Component {
   constructor(props) {
@@ -31,7 +32,6 @@ class MedicationContainer extends Component {
   }
   debugger;
   handleFrequencyNumberChange(event) {
-    debugger;
     this.setState({ frequency_number: event.target.value });
     debugger
   }
@@ -59,7 +59,6 @@ class MedicationContainer extends Component {
   }
 
    handleSubmit(event) {
-
      event.preventDefault();
      let formPayload = {
        generic_name: this.state.generic_name,
@@ -72,6 +71,16 @@ class MedicationContainer extends Component {
      this.handleClear(event);
    }
 
+   handleDelete(event) {
+     event.preventDefault();
+     let formPayload={
+       generic_name: this.state.generic_name,
+       brand_name: this.state.brand_name,
+       dosage: this.state.dosage,
+       frequency_number: this.state.frequency_number,
+       frequency_period: this.state.frequency_period,
+     }
+   }
 
    addNewMedication(formPayload){
    let jsonStringInfo = JSON.stringify(formPayload);
@@ -104,8 +113,6 @@ class MedicationContainer extends Component {
 
     return(
       <div>
-        <h1> Your Cabinet</h1>
-
         <h1> Add a medication to your cabinet </h1>
         <div className="medsform">
           <form className="new-medication-form" onSubmit={this.handleSubmit}>
@@ -142,7 +149,7 @@ class MedicationContainer extends Component {
             <div className="button-group">
               <button className="button" onClick={this.handleClear}> Clear</button>
               <input className="button" onSubmit={this.handleSubmit} type="submit" value="Submit" />
-              <a href="/prescriptions" className="button">See Prescription</a>
+              <a href="/prescriptions" className="button">See Prescriptions</a>
           </div>
         </form>
         </div>

@@ -7,6 +7,10 @@ class Api::V1::PrescriptionsController < ApplicationController
     render json: Prescription.all
   end
 
+  def show
+    @prescription = Prescription.find(params[:id])
+    render json: { prescription: @prescription, medication: @prescription.medication}
+  end
 
   def destroy
     if current_user_access

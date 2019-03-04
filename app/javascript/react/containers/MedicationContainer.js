@@ -27,26 +27,26 @@ class MedicationContainer extends Component {
       this.handleClear = this.handleClear.bind(this);
     }
 
+  handleGenericNameChange(event) {
+   this.setState({ generic_name: event.target.value });
+  }
+
+  handleBrandNameChange(event) {
+    this.setState({ brand_name: event.target.value });
+  }
+
   handleFrequencyPeriodChange(event) {
     this.setState({ frequency_period: event.target.value });
   }
-  debugger;
+
   handleFrequencyNumberChange(event) {
     this.setState({ frequency_number: event.target.value });
-    debugger
   }
 
   handleDosageChange(event) {
     this.setState({ dosage: event.target.value });
   }
 
-   handleGenericNameChange(event) {
-    this.setState({ generic_name: event.target.value });
-   }
-
-   handleBrandNameChange(event) {
-     this.setState({ brand_name: event.target.value });
-   }
   handleClear(event) {
     event.preventDefault();
       this.setState({

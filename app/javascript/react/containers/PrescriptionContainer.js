@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MedicationContainer from './MedicationContainer';
 import { browserHistory, Link } from 'react-router';
 import PrescriptionTile from '../components/PrescriptionTile';
+import PrescriptionShowPage from './PrescriptionShowPage';
 
 class PrescriptionContainer extends Component {
   constructor(props) {

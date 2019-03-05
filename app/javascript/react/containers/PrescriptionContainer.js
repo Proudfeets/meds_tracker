@@ -10,7 +10,9 @@ class PrescriptionContainer extends Component {
       this.state = {
         prescriptions: []
       };
+      this.handleDelete = this.handleDelete.bind(this);
     }
+
     componentDidMount(){
       fetch(`/api/v1/prescriptions`)
       .then((response) => {
@@ -24,9 +26,44 @@ class PrescriptionContainer extends Component {
       });
     }
 
+    handleDelete(id) {
+      event.preventDefault();
+      fetch(`/api/v1/prescriptions/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application.json' },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          prescription: { id: id }
+        })
+      })
+      .then((response) => {
+        debugger;
+        if (response.ok) {
+          return response;
+        } else {
+        let errorMessage = `${response.status}
+        (${response.statusText})`
+          error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+      .then(response => response.json())
+      .then(body => {
+        if (body['successful']) {
+          console.log("It worked!!!")
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    }
+
   render(){
 
     let medications = this.state.prescriptions.map(prescription => {
+      let onClickDelete = () => {
+        this.handleDelete(prescription.id)
+      }
       return(
           <PrescriptionTile
             key={prescription.id}
@@ -37,6 +74,8 @@ class PrescriptionContainer extends Component {
             dosage={prescription.dosage}
             number={prescription.frequency_number}
             period={prescription.frequency_period}
+            delete={prescription.delete}
+            onClickDelete={onClickDelete}
             />
       )
     })

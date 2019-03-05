@@ -13,11 +13,9 @@ class Api::V1::PrescriptionsController < ApplicationController
   end
 
   def destroy
-    if current_user_access
-      Prescription.destroy(params[:id])
-    else
-      render json: {message: "You're not authorized to delete that"}
-    end
+      @prescription = Prescription.find(params[:id])
+      @prescription.destroy
+      render json: { prescription: @prescription, medication: @prescription.medication}
   end
 
   def create

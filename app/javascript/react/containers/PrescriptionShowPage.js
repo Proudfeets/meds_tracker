@@ -8,6 +8,8 @@ class PrescriptionShowPage extends Component {
         medication: []
       }
     }
+
+
   componentDidMount(){
     fetch(`/api/v1/prescriptions/${this.props.params.id}`)
     .then((response) => {
@@ -21,7 +23,10 @@ class PrescriptionShowPage extends Component {
       });
     });
   }
+
+
 render(){
+
       return (
     <div>
     <h2> Medication: </h2><p></p>

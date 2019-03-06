@@ -80,12 +80,10 @@ class PrescriptionContainer extends Component {
       )
     })
 
-
   return(
     <div>
     <h1> Your Medicine Cabinet </h1>
       {medications}
-      <PrescriptionTile/>
           <a href="/medications" className="button">Add Another Medication</a>
     </div>
     )

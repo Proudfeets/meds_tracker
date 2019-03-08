@@ -3,9 +3,10 @@ class Api::V1::PrescriptionsController < ApplicationController
   protect_from_forgery with: :null_session, unless: -> { request.format.json? }
 
 
-  def index
-    render json: Prescription.all
-  end
+
+    def index
+      render json: Prescription.all
+    end
 
   def show
     @prescription = Prescription.find(params[:id])
@@ -19,16 +20,16 @@ class Api::V1::PrescriptionsController < ApplicationController
   end
 
   def create
-    # binding.pry
     new_prescription = Prescription.new(prescriptions_params)
     new_prescription.user = current_user
-    new_medication = Medication.find_by(generic_name: params["generic_name"])
+    new_medication = Medication.find_by(generic_name: params["generic_name"], brand_name: params["brand_name"])
     if !new_medication
       new_medication = Medication.create(generic_name: params["generic_name"], brand_name: params["brand_name"])
+      Prescription.create(dosage: params["dosage"], frequency_number: params["frequency_number"], frequency_period: params["frequency_period"], medication_id: new_medication.id, user_id: current_user.id)
     else
       new_prescription.medication = new_medication
+      Prescription.create(dosage: params["dosage"], frequency_number: params["frequency_number"], frequency_period: params["frequency_period"], medication_id: new_medication.id, user_id: current_user.id)
     end
-    # binding.pry
     if new_prescription.save
       render json: {message: "Your entry has been saved!"}
     else

@@ -5,11 +5,11 @@ RSpec.describe Api::V1::PrescriptionsController, type: :controller do
   let!(:prescription_two) { Prescription.create(user_id: 9, medication_id: 1, dosage: "7", frequency_number: 1, frequency_period: "each hour") }
 
   describe "GET#index" do
-    # it "should return a list of all the current user's prescriptions" do
-    #
-    #   get :index
-    #   returned_json = JSON.parse(response.body)
-    #
-    # end
+#     it "should return a list of all the prescriptions" do
+
+#       get :index
+#       returned_json = JSON.parse(response.body)
+
+#     end
   end
 end

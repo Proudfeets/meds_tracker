@@ -13,6 +13,7 @@ class PrescriptionsController < ApplicationController
     def destroy
     end
 
+
     private
 
     def prescriptions_params

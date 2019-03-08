@@ -39,7 +39,6 @@ class PrescriptionContainer extends Component {
         })
       })
       .then((response) => {
-        debugger;
         if (response.ok) {
           return response;
         } else {

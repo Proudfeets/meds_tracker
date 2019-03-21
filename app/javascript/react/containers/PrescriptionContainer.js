@@ -40,6 +40,7 @@ class PrescriptionContainer extends Component {
       })
       .then((response) => {
         if (response.ok) {
+          console.log(response)
           return response;
         } else {
         let errorMessage = `${response.status}
@@ -53,8 +54,14 @@ class PrescriptionContainer extends Component {
         if (body['successful']) {
           console.log("It worked!!!")
         }
+          this.setState({
+        prescriptions: responseBody.prescriptions
+          });
+          console.log("It worked2!!!")
+
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
+
     }
 
   render(){
@@ -80,11 +87,11 @@ class PrescriptionContainer extends Component {
     })
 
   return(
-    <div>
-    <h1> Your Medicine Cabinet </h1>
+    <div className="centered">
+    <h1  className="centered"> Your Medicine Cabinet </h1>
+      <a href="/medications" className="button">Add Another Medication</a>
       {medications}
-          <a href="/medications" className="button">Add Another Medication</a>
-    </div>
+      </div>
     )
   }
 }

@@ -80,6 +80,7 @@ class MedicationContainer extends Component {
        frequency_number: this.state.frequency_number,
        frequency_period: this.state.frequency_period,
      }
+
    }
 
    addNewMedication(formPayload){
@@ -98,7 +99,7 @@ class MedicationContainer extends Component {
        return response;
        console.log(formPayload)
      } else {
-       let errorMessage =`${response.status} (${response.statusText})`,
+       let errorMessage =`Error here: ${response.status} (${response.statusText})`,
        error = new Error(errorMessage);
        throw error;
      }
@@ -114,11 +115,11 @@ class MedicationContainer extends Component {
     return(
       <div>
         <h1> Add a medication to your cabinet </h1>
-        <div className="medsform">
+        <div>
           <form className="new-medication-form" onSubmit={this.handleSubmit}>
             <GenericNameField
               content={this.state.generic_name}
-              label="*Generic Name (eg: acetaminophen)"
+              label="Required: Generic Name (eg: acetaminophen)"
               name="medication-generic"
               handleGenericNameChange={this.handleGenericNameChange}
             />
@@ -130,26 +131,27 @@ class MedicationContainer extends Component {
               />
               <DosageField
               content={this.state.dosage}
-              label="*Dosage (eg: 50mg)"
+              label="Required: Dosage (eg: 50mg)"
               name="dosage"
               handleDosageChange={this.handleDosageChange}
               />
               <FrequencyNumberField
               content={this.state.frequency_number}
-              label="*How many do you take at a time?"
+              label="Required: How many do you take at a time?"
               name="frequency_number"
               handleFrequencyNumberChange={this.handleFrequencyNumberChange}
               />
               <FrequencyPeriodField
               content={this.state.frequency_period}
-              label="*How often do you take this medication?"
+              label="Required: How often do you take this medication?"
               name="frequency_period"
               handleFrequencyPeriodChange={this.handleFrequencyPeriodChange}
               />
+              <n/><p></p>
             <div className="button-group">
               <button className="button" onClick={this.handleClear}> Clear</button>
               <input className="button" onSubmit={this.handleSubmit} type="submit" value="Submit" />
-              <a href="/prescriptions" className="button">See Prescriptions</a>
+              <a href="/prescriptions" className="button">My Cabinet</a>
           </div>
         </form>
         </div>

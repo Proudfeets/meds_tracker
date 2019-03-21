@@ -18,27 +18,94 @@
  *{
   font-style: normal;
 }
+  .new-medication-form{
+  text-align: center;
+  border-width: medium;
+  background: white;
+  }
 
  .background{
-   background-color: #D9E8F5;
+   background: red;
  }
-
+ .blue{
+   background-color: pink;
+ }
+.top-bar-section{
+  background: #304269;
+  color: white;
+  line-height: 6vh;
+  font-family: Arial, Helvetica, monospace;
+}
+.right{
+    background: #304269;
+    color: white;
+    line-height: 6vh;
+    font-family: Arial, Helvetica, monospace;
+}
 .top-bar{
   background: #304269;
   color: white;
-  line-height: 6rem;
+  line-height: 6vh;
   font-family: Arial, Helvetica, monospace;
+}
+.form-field{
+  padding: 30px;
+  align-items: center;
+  background: pink;
+  border-radius: 10px;
+}
+.formtag{
+  color: red;
+  font-size: 75px;
+}
+.centered{
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  font-family: Times;
+}
+.delete{
+  padding: 1vh;
+  position: sticky;
+  height: 40px;
+}
+.button-group{
+  margin: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+  border-radius: 10px;
+}
+.button{
+  margin: auto;
+  border-radius: 20px;
+  min-width: 25vh;
+  max-width: 50vh;
 }
 textarea{
   min-width: 50px;
   width: 40%;
-  padding-left: 30px;
-  padding-right: 30px;
-  align-items: center;
+  margin:auto;
+  height: auto;
+}
+h3{
+  color: white;
 }
 select{
   min-width: 50px;
   width: 40%;
   padding-left: 30px;
   padding-right: 30px;
+  margin: auto;
+}
+label{
+  margin: auto;
+}
+div{
+  align-items: center;
+}
+a{
+  background-color: #304269;
+}
+li{
+  background-color: #304269;
 }

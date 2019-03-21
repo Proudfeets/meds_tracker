@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 const FrequencyPeriodField = props => {
   return(
-    <div>
+    <div className="centered">
       <label>{props.label}</label>
         <select
         name="frequency-period"

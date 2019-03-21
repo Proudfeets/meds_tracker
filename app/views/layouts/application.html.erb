@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<link rel="stylesheet"
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+
 <html>
 <head>
   <title>MedsTracker</title>
@@ -18,10 +19,13 @@
         <h1><a href="/">MedsTracker!</a></h1>
       </li>
     </ul>
-
+    <ul class="title-area">
+      <h3><i class="fas fa-pills"></i></h3>
+      </ul>
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
+          <li class="blue"> You are signed in</li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>

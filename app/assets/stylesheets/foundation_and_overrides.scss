@@ -113,7 +113,7 @@
 // $tuatara     : #444444;
 // $oil         : #333333;
 // $jet         : #222222;
-// $black       : #000000;
+// $pink       : #000000;
 
 // We use these as default colors throughout
 // $primary-color: #91BED4;
@@ -124,7 +124,7 @@
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
- $body-bg: #d9e8f5;
+ // $body-bg: white;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -141,13 +141,13 @@
 
 
 // We use these to make sure border radius matches unless we want it different.
-$global-radius: 3px;
+// $global-radius: 3px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
 // $shiny-edge-size: 0 1px 0;
 // $shiny-edge-color: rgba($white, .5);
-// $shiny-edge-active-color: rgba($black, .2);
+// $shiny-edge-active-color: rgba(#304269, .2);
 
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -278,7 +278,7 @@ $global-radius: 3px;
 // $hr-border-width: 1px;
 // $hr-border-style: solid;
 // $hr-border-color: $gainsboro;
-$hr-margin: rem-calc(20);
+// $hr-margin: rem-calc(20);
 
 // We use these to style lists
 // $list-font-family: $paragraph-font-family;
@@ -560,7 +560,7 @@ $hr-margin: rem-calc(20);
 
 // We use these to style the triangle pip.
 // $f-dropdown-triangle-size: 6px;
-// $f-dropdown-triangle-color: black;
+// $f-dropdown-triangle-color: pink;
 // $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
@@ -644,7 +644,7 @@ $hr-margin: rem-calc(20);
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: $font-weight-normal;
 // $form-label-line-height: 1.5;
-// $form-label-font-color: scale-color($black, $lightness: 30%);
+// $form-label-font-color: scale-color($pink, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 3;
 // $input-font-family: inherit;
@@ -901,7 +901,7 @@ $hr-margin: rem-calc(20);
 // Off Canvas Back-Link Overlay
 // $off-canvas-overlay-transition: background 300ms ease;
 // $off-canvas-overlay-cursor: pointer;
-// $off-canvas-overlay-box-shadow: -4px 0 4px rgba($black, .5), 4px 0 4px rgba($black, .5);
+// $off-canvas-overlay-box-shadow: -4px 0 4px rgba($pink, .5), 4px 0 4px rgba(pink, .5);
 // $off-canvas-overlay-background: rgba($white, .2);
 // $off-canvas-overlay-background-hover: rgba($white, .05);
 
@@ -1130,8 +1130,8 @@ $hr-margin: rem-calc(20);
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-// $reveal-overlay-bg: rgba($black, .45);
-// $reveal-overlay-bg-old: $black;
+// $reveal-overlay-bg: rgba($pink, .45);
+// $reveal-overlay-bg-old: $pink;
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: $white;
@@ -1139,7 +1139,7 @@ $hr-margin: rem-calc(20);
 // $reveal-default-width: 80%;
 // $reveal-max-width: $row-width;
 // $reveal-modal-padding: rem-calc(20);
-// $reveal-box-shadow: 0 0 10px rgba($black,.4);
+// $reveal-box-shadow: 0 0 10px rgba($pink,.4);
 
 // We use these to style the reveal close button
 // $reveal-close-font-size: rem-calc(40);
@@ -1366,7 +1366,7 @@ $hr-margin: rem-calc(20);
 // $thumb-border-style: solid;
 // $thumb-border-width: 4px;
 // $thumb-border-color: $white;
-// $thumb-box-shadow: 0 0 0 1px rgba($black,.2);
+// $thumb-box-shadow: 0 0 0 1px rgba($pink,.2);
 // $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
 
 // Radius and transition speed for thumbs

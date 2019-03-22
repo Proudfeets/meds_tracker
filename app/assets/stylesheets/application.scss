@@ -81,6 +81,12 @@
   min-width: 25vh;
   max-width: 50vh;
 }
+.devise-text{
+  background-color: #FFFFFF;
+  color: black;
+  border-width: thin;
+  border-color: grey;
+}
 textarea{
   min-width: 50px;
   width: 40%;
@@ -104,7 +110,6 @@ div{
   align-items: center;
 }
 a{
-  background-color: #304269;
 }
 li{
   background-color: #304269;

@@ -3,22 +3,13 @@
 
 * Runs on Ruby 2.4.5, Carrierwave 1.0, with the fog gem and AWS.  For that you'll need your own access keys.
 
-
-* Runs on Ruby on Rails 2.4.5, AWS
-
 * System dependencies
+-ActiveRecord
+-Rails
+-ReactJS 3
 
-* Configuration
 
 * Database creation
+-runs on postgres
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # meds_tracker
